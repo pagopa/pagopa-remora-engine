@@ -10,6 +10,9 @@ microservice-chart: &microservice-chart
     httpGet:
       path: /r/ping
       port: 8080
+      httpHeaders:
+      - name: Content-Type
+        value: application/json
     initialDelaySeconds: 30
     failureThreshold: 5
     periodSeconds: 10
@@ -17,6 +20,9 @@ microservice-chart: &microservice-chart
     httpGet:
       path: /r/ping
       port: 8080
+      httpHeaders:
+      - name: Content-Type
+        value: application/json
     initialDelaySeconds: 30
     failureThreshold: 5
     periodSeconds: 10
