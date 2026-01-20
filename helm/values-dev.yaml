@@ -4,7 +4,7 @@ microservice-chart: &microservice-chart
   fullnameOverride: ""
   image:
     repository: ghcr.io/andrea-deri/remora-engine
-    tag: "0.0.1"
+    tag: "v0.0.1"
     pullPolicy: Always
   livenessProbe:
     httpGet:
