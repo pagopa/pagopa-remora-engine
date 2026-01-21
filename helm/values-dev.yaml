@@ -13,8 +13,8 @@ microservice-chart: &microservice-chart
       httpHeaders:
       - name: Content-Type
         value: application/json
-    initialDelaySeconds: 30
-    failureThreshold: 5
+    initialDelaySeconds: 10
+    failureThreshold: 10
     periodSeconds: 10
   readinessProbe:
     httpGet:
@@ -23,8 +23,8 @@ microservice-chart: &microservice-chart
       httpHeaders:
       - name: Content-Type
         value: application/json
-    initialDelaySeconds: 30
-    failureThreshold: 5
+    initialDelaySeconds: 10
+    failureThreshold: 10
     periodSeconds: 10
   deployment:
     create: true
