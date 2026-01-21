@@ -58,6 +58,8 @@ jobs:
         run: |
           echo "${{ steps.semver.outputs.version }}"
           git ls-files . | grep 'helm'  | xargs git add
+          git config --global user.email "pagopa-platform-shared-github-bot@pagopa.it"
+          git config --global user.name "pagopa-platform-shared-bot"
           if [ "${{ inputs.skip_ci }}" = "true" ]; then
               git commit -m "Bump to version ${{ inputs.version }} [skip ci]" || exit 0
             else
