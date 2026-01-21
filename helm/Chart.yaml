@@ -2,8 +2,8 @@ apiVersion: v2
 name: pagopa-remora-engine
 description: REMORA Engine for PagoPA
 type: application
-version: 0.0.1
-appVersion: <version-set-automatically-by-gha>
+version: 0.1.0
+appVersion: v0.0.1-rc.3
 dependencies:
   - name: microservice-chart
     version: 8.0.2

@@ -4,15 +4,15 @@ microservice-chart: &microservice-chart
   fullnameOverride: ""
   image:
     repository: ghcr.io/andrea-deri/remora-engine
-    tag: <version-set-automatically-by-gha>
+    tag: v0.0.1-rc.3
     pullPolicy: Always
   livenessProbe:
     httpGet:
       path: /r/ping
       port: 8080
       httpHeaders:
-      - name: Content-Type
-        value: application/json
+        - name: Content-Type
+          value: application/json
     initialDelaySeconds: 10
     failureThreshold: 10
     periodSeconds: 10
@@ -21,8 +21,8 @@ microservice-chart: &microservice-chart
       path: /r/ping
       port: 8080
       httpHeaders:
-      - name: Content-Type
-        value: application/json
+        - name: Content-Type
+          value: application/json
     initialDelaySeconds: 10
     failureThreshold: 10
     periodSeconds: 10
