@@ -52,6 +52,21 @@ jobs:
           version: ${{ inputs.version }}
           beta: false
 
+      - name: Push New Version
+        if: ${{ inputs.semver != 'skip' }}
+        shell: bash
+        run: |
+          echo "${{ steps.semver.outputs.version }}"
+          git ls-files . | grep 'pom.xml'  | xargs git add
+          git config --global user.email "github-bot@pagopa.it"
+          git config --global user.name "pagopa-github-bot"
+          if [ "${{ inputs.skip_ci }}" = "true" ]; then
+              git commit -m "Bump to version ${{ steps.semver.outputs.version }} [skip ci]" || exit 0
+            else
+              git commit -m "Bump to version ${{ steps.semver.outputs.version }}" || exit 0
+          fi
+          git push origin ${{ github.ref_name}}
+
       - name: Deploy
         uses: pagopa/github-actions-template/aks-deploy@main
         with:
